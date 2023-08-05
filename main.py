@@ -31,7 +31,7 @@ def merge(left: list[str], right: list[str]) -> None:
 
     while left_index < len(left) and right_index < len(right):
 
-        if compare(left[left_index], right[right_index]):
+        if not compare(left[left_index], right[right_index]):
             result.append(left[left_index])
             left_index += 1
         else:
@@ -62,4 +62,6 @@ if __name__=="__main__":
     tracks = get_tracks_artists(playlist_link)
 
     random.shuffle(tracks)
-    print(merge_sorted(tracks))
+    for song in merge_sorted(tracks):
+
+        print(song)
